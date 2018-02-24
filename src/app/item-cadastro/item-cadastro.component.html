@@ -1,0 +1,31 @@
+<form #frm="ngForm" (ngSubmit)="adicionar(frm)">
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <h1>Gestão de Patrimônio</h1>
+    </div>
+    <div class="ui-g-6 ui-fluid">
+      <label>Etiqueta</label>
+      <p-inputMask name="etiqueta" mask="aa9999" ngModel [required]="true"></p-inputMask>
+    </div>
+    <div class="ui-g-6 ui-fluid">
+      <label>Data de Aquisição</label>
+      <p-calendar name="dataAquisicao" dateFormat="dd/mm/yy" ngModel [required]="true"></p-calendar>
+    </div>
+    <div class="ui-g-12 ui-fluid">
+      <label>Descrição</label>
+      <input pInputText name="descricao" ngModel [required]="true">
+    </div>
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Adicionar" [disabled]="frm.invalid"></button>
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="itens">
+          <p-column field="etiqueta" header="Etiqueta"></p-column>
+          <p-column field="descricao" header="Descrição"></p-column>
+          <p-column field="dataAquisicao" header="Data de Aquisição"></p-column>
+        </p-dataTable>
+      </div>
+    </div>
+  </div>
+</form>
